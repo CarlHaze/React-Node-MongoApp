@@ -1,0 +1,24 @@
+{
+  "name": "react-node-mongoapp",
+  "version": "1.0.0",
+  "description": "Application for 3rd year web final assessment.",
+  "main": "server.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node server.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/CarlHaze/React-Node-MongoApp.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/CarlHaze/React-Node-MongoApp/issues"
+  },
+  "homepage": "https://github.com/CarlHaze/React-Node-MongoApp#readme",
+  "dependencies": {
+    "express": "^4.18.1"
+  }
+}
