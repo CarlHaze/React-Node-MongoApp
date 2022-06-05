@@ -54,3 +54,9 @@ Using an industry recognised Web application framework that you **did not use** 
 Installed nodemon to monitor changes within our application while it is running
 to use this need to add this line to our scripts in package.json
      "ourserver": "nodemon server.js",
+
+
+## Template engine
+Adding template engine EJS
+    npm install ejs
+need to tell our app we want to use EJS doing this top of our server.js file

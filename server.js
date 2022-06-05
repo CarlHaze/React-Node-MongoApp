@@ -40,11 +40,12 @@ let db //global var for getting client DB
 // };
 
 const app = express()
+app.set("view engine", "ejs")
+app.set("views", "./views")
 
 app.get("/", async(req, res) => {
-    const allAnimals = await db.collection("animals").find().toArray()
-    console.log(allAnimals)
-    res.send("Welcome to the homepage")
+    const allAnimals = await db.collection("animals").find().toArray() //need to pass DB results into our render template
+    res.render('home') //we will render template called home.ejs
 })
 
 app.get("/admin", (req, res) => {
