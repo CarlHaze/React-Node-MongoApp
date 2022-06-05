@@ -4,6 +4,7 @@
     "description": "Application for 3rd year web final assessment.",
     "main": "server.js",
     "scripts": {
+        "ourwebpack": "webpack --watch",
         "ourserver": "nodemon server.js",
         "test": "echo \"Error: no test specified\" && exit 1",
         "start": "node server.js"
