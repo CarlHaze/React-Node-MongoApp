@@ -60,3 +60,6 @@ to use this need to add this line to our scripts in package.json
 Adding template engine EJS
     npm install ejs
 need to tell our app we want to use EJS doing this top of our server.js file
+    app.set("view engine", "ejs")
+then set the folder we want to keep our view templates in
+    app.set("views", "./views")

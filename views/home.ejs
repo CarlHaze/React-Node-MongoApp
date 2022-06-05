@@ -1,1 +1,13 @@
-This is the home page template
+<!-- EJS formatting is a bit funky when I save -->
+
+<h1> Welcome</h1>
+
+<Ul>
+    <% allAnimals.forEach(function(animal){%>
+        <li>
+            <%= animal.name %> -
+                <%= animal.species %>
+        </li>
+
+        <%})%>
+</Ul>
