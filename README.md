@@ -37,11 +37,7 @@ Using an industry recognised Web application framework that you **did not use** 
 - Maintain your source code using an industry recognised version control system e.g. *Git, Bitbucket* etc. **(15 marks)**
 
 
-# MongoDB Docker Info F**K DOCKER
-
- *The database connection string value we will use in the MongoDB Compass app:* fuck Docker
-      
-    mongodb://root:root@localhost:27017/
+ # MongoDB 
 
 # MongoDB cluster connection info
     Username: Carl_Ellis
@@ -49,3 +45,12 @@ Using an industry recognised Web application framework that you **did not use** 
 
 # MongoDB Connect your application info
     mongodb+srv://Carl_Ellis:mongodbtest@cluster0.j16jrhy.mongodb.net/?retryWrites=true&w=majority
+
+
+
+# Notes
+
+## nodemon
+Installed nodemon to monitor changes within our application while it is running
+to use this need to add this line to our scripts in package.json
+     "ourserver": "nodemon server.js",
