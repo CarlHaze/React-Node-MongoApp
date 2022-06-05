@@ -39,5 +39,5 @@ Using an industry recognised Web application framework that you **did not use** 
 
 # MongoDB Docker Info
 
-      # The database connection string value we will use in the MongoDB Compass app:
+ *The database connection string value we will use in the MongoDB Compass app:*
       # mongodb://root:root@localhost:27017/
