@@ -63,3 +63,6 @@ need to tell our app we want to use EJS doing this top of our server.js file
     app.set("view engine", "ejs")
 then set the folder we want to keep our view templates in
     app.set("views", "./views")
+
+## Client Side JavaScript
+this is for clicking on entity so that we can edit values of them from the website

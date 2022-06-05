@@ -49,7 +49,7 @@ app.get("/", async(req, res) => {
 })
 
 app.get("/admin", (req, res) => {
-    res.send("This is the Admin page")
+    res.render("admin")
 })
 
 async function start() {
