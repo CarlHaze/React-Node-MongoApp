@@ -66,3 +66,11 @@ then set the folder we want to keep our view templates in
 
 ## Client Side JavaScript
 this is for clicking on entity so that we can edit values of them from the website
+
+
+## React Install info   
+Installed a bunch of packages to help with conversions and utalisation of react 
+    npm install react react-dom @babel/core @babel/preset-react babel-loader webpack webpack-cli webpack-node-externals npm-run-all
+webpack is the important part here it will bundle up the JSX convert it into regular JavaScript that web browser will understand
+need to create a file in the root for webpack to work and so we can tell it what to do
+    webpack.config.js

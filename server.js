@@ -42,6 +42,7 @@ let db //global var for getting client DB
 const app = express()
 app.set("view engine", "ejs")
 app.set("views", "./views")
+app.use(express.static("public"))
 
 app.get("/", async(req, res) => {
     const allAnimals = await db.collection("animals").find().toArray() //need to pass DB results into our render template
