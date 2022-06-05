@@ -35,3 +35,9 @@ Using an industry recognised Web application framework that you **did not use** 
 - Provide a secure backend area in your site (user credentials) to store and perform data manipulation. This can be managed by a local database MySQL, Mongo DB etc. or something like *Firebase* etc. **(35 marks)**
 
 - Maintain your source code using an industry recognised version control system e.g. *Git, Bitbucket* etc. **(15 marks)**
+
+
+# MongoDB Docker Info
+
+      # The database connection string value we will use in the MongoDB Compass app:
+      # mongodb://root:root@localhost:27017/

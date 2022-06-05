@@ -1,0 +1,23 @@
+version: "3.9"
+services:
+  mongo:
+    container_name: "mernstackdb"
+    image: mongo:5.0.8-focal
+    restart: always
+    ports:
+      - 27017:27017
+    volumes:
+      - ./db:/data/db
+    environment:
+      MONGO_INITDB_ROOT_USERNAME: root
+      MONGO_INITDB_ROOT_PASSWORD: root
+
+
+
+
+      # this tells docker we want to use mongoDB password and username is root after typign docker compose up -d into terminal we will have a MongoDB image instaled that we can use 
+
+      # To start and stop the DB docker compose stop/start
+
+      # The database connection string value we will use in the MongoDB Compass app:
+      # mongodb://root:root@localhost:27017/
