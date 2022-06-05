@@ -1,8 +1,18 @@
 # React-Node-MongoApp
  Application for 3rd year web final assessment. 
+
 [link to my ToDo Board](https://github.com/users/CarlHaze/projects/1/views/1)
+
  # *MERN basics*
- **using MongoDB, Express, React, Node** 
+ # **using MongoDB, Express, React, Node** 
+
+Express for Routing 
+MondgoDB to hold permanant data
+React for frontend views
+Node for backend managment
+
+[Docker usage](https://www.docker.com/products/docker-desktop/)
+
 
 **Assessment Aim**
 
