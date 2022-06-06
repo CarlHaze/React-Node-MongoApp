@@ -103,7 +103,7 @@ Installing yet more packages, this one is to help with fetching, not really need
 ## HTML CSS 
 just templates used Bootstrap.css and own css file
 
-## Adding password protection to Admin and other urls on my webpage
+## Security Adding password protection to Admin and other urls on my webpage
 creating some custom middleware functionality we will only call next once parameters have been meet
 
     function passwordProtected(req, res, next) {
@@ -122,3 +122,27 @@ password: admin
 this can be used for any route as an aditional argument. express calls these functions in order and this function will be a gatekeeper
 values in password get base64 encoded pretty funny work around what we type into password and username fails but console outputs a Bas64 string that we can use
 brute force attack would just go right through it
+
+**File upload security**
+
+We do not want to allow injections or malicious attacks. using MongoDB stops potential sql injection
+we do not want to let users submit a value that can be interpreted as an object instead of a simple string because the object could hold mongoDB commands
+in addition we will want to strip any html from the values. so we will clean data when we create a new animal or edit and exsisting animal
+creating reusable middleware for this:
+
+    function cleanupData(req, res, next) {
+    if (typeof req.body.name != "string") req.body.name = ""
+    if (typeof req.body.species != "string") req.body.species = ""
+    if (typeof req.body._id != "string") req.body._id = ""
+    }
+
+this function takes what is input and if it is not a string will convert it into an empty field
+
+
+## Multi part form handling 
+with normal async (json) forms or html froms we use the following
+    app.use(express.json()) //if browser sends json(async) to the server we can then access that data
+    app.use(express.urlencoded({ extended: false })) //if someone is just submiting an html form we want to access that data
+
+however this application uses multi part forms so we need a package to easily handle this, we only need this if we want users to send us files
+    npm install multer

@@ -21,7 +21,7 @@ function CreateNewForm(props) {
     props.setAnimals(prev => prev.concat([newPhoto.data]))
   }
 
-  return (
+  return ( //when form is submitted will run our submitHandler function above
     <form className="p-3 bg-success bg-opacity-25 mb-5" onSubmit={submitHandler}>
       <div className="mb-2">
         <input ref={CreatePhotoField} onChange={e => setFile(e.target.files[0])} type="file" className="form-control" />

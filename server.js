@@ -1,6 +1,9 @@
 const { response } = require("express")
 const express = require("express")
 const { MongoClient } = require("mongodb") //connects to my mongoDB database
+    //only need multer when letting users upload files
+const multer = require('multer')
+const upload = multer()
 
 let db //global var for getting client DB
 
@@ -9,6 +12,12 @@ const app = express()
 app.set("view engine", "ejs")
 app.set("views", "./views")
 app.use(express.static("public"))
+
+//this is good for normal functionality
+app.use(express.json()) //if browser sends json(async) to the server we can then access that data
+app.use(express.urlencoded({ extended: false })) //if someone is just submiting an html form we want to access that data
+
+//our browers sends multipart froms so we need a multer package
 
 // values in password get base64 encoded
 
@@ -41,6 +50,21 @@ app.get("/api/animals", async(req, res) => {
     const allAnimals = await db.collection("animals").find().toArray()
     res.json(allAnimals)
 })
+
+//Axios.post("/create-animal") create a route for this for our server this is in the CreateNewForm.js
+//sending data this is handling a multi part from we need to include upload middleware (multer)
+//we want to only allow uploading of one single photo hence upload.single
+app.post("/create-animal", upload.single("photo"), async(req, res) => {
+    console.log(req.body)
+    res.send("Thank you")
+})
+
+
+function cleanupData(req, res, next) {
+    if (typeof req.body.name != "string") req.body.name = ""
+    if (typeof req.body.species != "string") req.body.species = ""
+    if (typeof req.body._id != "string") req.body._id = ""
+}
 
 async function start() {
 
