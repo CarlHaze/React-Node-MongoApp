@@ -11,7 +11,10 @@ MondgoDB to hold permanant data
 React for frontend views
 Node for backend managment
 
-[Docker usage](https://www.docker.com/products/docker-desktop/)
+run to start application
+    npm run dev
+
+
 
 
 **Assessment Aim**
