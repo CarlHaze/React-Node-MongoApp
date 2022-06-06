@@ -81,6 +81,14 @@ app.post("/create-animal", upload.single("photo"), cleanupData, async(req, res) 
 app.delete("/animal/:id", async(req, res) => {
     //make sure id is a string if it is not set it to an empty string
     if (typeof req.params.id != "string") req.params.id = ""
+        //delete the photo as well from HDD
+    const doc = await db.collection("animals").findOne({ _id: new ObjectId(req.params.id) })
+    if (doc.photo) {
+        fse.remove(path.join("public", "uploaded-photos", doc.photo))
+    }
+
+    db.collection("animals").deleteOne({ _id: new ObjectId(req.params.id) })
+    res.send("All done")
 })
 
 
