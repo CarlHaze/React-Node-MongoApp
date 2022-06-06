@@ -53,8 +53,8 @@ function AnimalCard(props) {
       <div className="card-body">
         {!isEditing && (
           <>
-            <h4>{props.name}</h4>
-            <p className="text-muted small">{props.species}</p>
+            <h4>Name: {props.name}</h4>
+            <p className="text-muted small">Species: {props.species}</p>
             {!props.readOnly && (
               <>
                 <button

@@ -81,7 +81,7 @@ app.post("/create-animal", upload.single("photo"), cleanupData, async(req, res) 
     if (req.file) {
         const photofilename = `${Date.now()}.jpg` //uniqure to any miliesecond for filenames
             //resize the image multer handles the file part
-        await sharp(req.file.buffer).resize(844, 456).jpeg({ quality: 60 }).toFile(path.join("public", "uploaded-photos", photofilename))
+        await sharp(req.file.buffer).resize(900, 500).jpeg({ quality: 60 }).toFile(path.join("public", "uploaded-photos", photofilename))
         req.cleanData.photo = photofilename
             //above we have added the resized photo to our harddrive and we have added the photo name to the file we want to store in database
     }
