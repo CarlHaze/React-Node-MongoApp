@@ -90,6 +90,23 @@ app.delete("/animal/:id", async(req, res) => {
     db.collection("animals").deleteOne({ _id: new ObjectId(req.params.id) })
     res.send("All done")
 })
+app.post("/update-animal", upload.single("photo"), cleanupData, async(req, res) => {
+    if (req.file) {
+        // if they are uploading a new photo
+        const photofilename = `${Date.now()}.jpg`
+        await sharp(req.file.buffer).resize(844, 456).jpeg({ quality: 60 }).toFile(path.join("public", "uploaded-photos", photofilename))
+        req.cleanData.photo = photofilename
+        const info = await db.collection("animals").findOneAndUpdate({ _id: new ObjectId(req.body._id) }, { $set: req.cleanData }) //delete old photo from HDD if it was there before updating image
+        if (info.value.photo) {
+            fse.remove(path.join("public", "uploaded-photos", info.value.photo))
+        }
+        res.send(photofilename)
+    } else {
+        // if they are not uploading a new photo
+        db.collection("animals").findOneAndUpdate({ _id: new ObjectId(req.body._id) }, { $set: req.cleanData })
+        res.send(false)
+    }
+})
 
 
 function cleanupData(req, res, next) {
