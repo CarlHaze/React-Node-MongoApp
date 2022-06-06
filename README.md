@@ -153,3 +153,8 @@ however this application uses multi part forms so we need a package to easily ha
 
 ## React forms updating info
 uses the CreateNewForm.js component Axios.post request this gives setAnimals a call and it adds new stuff
+
+## Images
+importing fs extra and sharp for resizing and magement of images
+    npm install fs-extra sharp
+

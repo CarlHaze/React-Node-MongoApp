@@ -5,9 +5,14 @@ const { MongoClient, ObjectId } = require("mongodb") //connects to my mongoDB da
 const multer = require('multer')
 const upload = multer()
 const sanitizeHTML = require('sanitize-html')
+const fse = require('fs-extra')
+const sharp = require('sharp')
+const path = require('path') //this gives global pathing no matter if on win mac or linux
 
 let db //global var for getting client DB
 
+//when app first launches, make sure the public/uploaded-photos folder exists as git likes to delete empty folders
+fse.ensureDirSync(path.join("public", "uploaded-photos"))
 
 const app = express()
 app.set("view engine", "ejs")
@@ -56,6 +61,14 @@ app.get("/api/animals", async(req, res) => {
 //sending data this is handling a multi part from we need to include upload middleware (multer)
 //we want to only allow uploading of one single photo hence upload.single
 app.post("/create-animal", upload.single("photo"), cleanupData, async(req, res) => {
+    //has the user added a file in the post
+    if (req.file) {
+        const photofilename = `${Date.now()}.jpg` //uniqure to any miliesecond for filenames
+            //resize the image multer handles the file part
+        await sharp(req.file.buffer).resize(844, 456).jpeg({ quality: 60 }).toFile(path.join("public", "uploaded-photos", photofilename))
+        req.cleanData.photo = photofilename
+            //above we have added the resized photo to our harddrive and we have added the photo name to the file we want to store in database
+    }
     console.log(req.body)
         //saving new collection into MongoDB database
         //info will contain the _id of new document in Mongo
@@ -63,6 +76,11 @@ app.post("/create-animal", upload.single("photo"), cleanupData, async(req, res) 
         //we want server to send back an object that represents the new animal doc that we just made back to browser
     const newAnimal = await db.collection("animals").findOne({ _id: new ObjectId(info.insertedId) }) //ObjectId requires we call somthing from MongoDB inorder to access this ObjectId in our deconstructed mongodb
     res.send(newAnimal)
+})
+
+app.delete("/animal/:id", async(req, res) => {
+    //make sure id is a string if it is not set it to an empty string
+    if (typeof req.params.id != "string") req.params.id = ""
 })
 
 

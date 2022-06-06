@@ -70,7 +70,7 @@ function AnimalCard(props) {
                 </button>{" "}
                 <button
                   onClick={async () => {
-                    const test = Axios.delete(`/animal/${props.id}`)
+                    const test = Axios.delete(`/animal/${props.id}`) //this sends a delete request to delete what ever the id of the animal prop is
                     props.setAnimals(prev => {
                       return prev.filter(animal => {
                         return animal._id != props.id
