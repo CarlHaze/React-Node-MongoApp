@@ -105,19 +105,20 @@ just templates used Bootstrap.css and own css file
 
 ## Adding password protection to Admin and other urls on my webpage
 creating some custom middleware functionality we will only call next once parameters have been meet
-    function passwordProtected(req, res, next) {
-        res.set("WWW-Authenticate", "Basic realm='MERN Pet App'")
-        if (req.headers.authorization == "Basic YWRtaW46YWRtaW4=") {
-            next()
-        } else {
-            console.log(req.headers.authorization)
-            res.status(401).send("Try Again")
 
-        }
+    function passwordProtected(req, res, next) {
+    res.set("WWW-Authenticate", "Basic realm='MERN Pet App'")
+    if (req.headers.authorization == "Basic YWRtaW46YWRtaW4=") {
+        next()
+    } else {
+        console.log(req.headers.authorization)
+        res.status(401).send("Try Again")
 
     }
-    username: admin
-    password: admin
+
+    }
+username: admin
+password: admin
 this can be used for any route as an aditional argument. express calls these functions in order and this function will be a gatekeeper
 values in password get base64 encoded pretty funny work around what we type into password and username fails but console outputs a Bas64 string that we can use
 brute force attack would just go right through it
