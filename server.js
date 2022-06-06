@@ -48,14 +48,21 @@ app.get("/", async(req, res) => {
         //can get better performance using React Pipeable
     const generatedHTML = ReactDOMServer.renderToString(
         <div className="container">
+            
         {!allAnimals.length && <p>Admin needs to add some animals please comback later</p>} 
+        
         <h1 className="title">MERN Application</h1>
             <div className="animal-grid mb-3">
                 
                 {allAnimals.map(animal => <AnimalCard key={animal.id} name={animal.name} species={animal.species} photo={animal.photo} id={animal._id} readOnly={true}/>)}
             </div>
             <p><a href="/admin">Login to manage animal cards</a></p>
+            <div className="browserstorage">
+                <input type={"text"}/>
+            </div>
+            
         </div>
+        
     )
     res.render("home", { generatedHTML }) //we will render template called home.ejs
 })
