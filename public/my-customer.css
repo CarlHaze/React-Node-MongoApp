@@ -5,6 +5,11 @@
     gap: 20px 30px;
 }
 
+.title {
+    font-size: 100px;
+    text-align: center;
+}
+
 .our-card-top {
     position: relative;
 }

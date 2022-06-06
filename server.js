@@ -7,9 +7,12 @@ const upload = multer()
 const sanitizeHTML = require('sanitize-html')
 const fse = require('fs-extra')
 const sharp = require('sharp')
-const path = require('path') //this gives global pathing no matter if on win mac or linux
-
 let db //global var for getting client DB
+const path = require('path') //this gives global pathing no matter if on win mac or linux
+const React = require('react')
+const ReactDOMServer = require('react-dom/server')
+const AnimalCard = require("./src/components/AnimalCard").default
+
 
 //when app first launches, make sure the public/uploaded-photos folder exists as git likes to delete empty folders
 fse.ensureDirSync(path.join("public", "uploaded-photos"))
@@ -39,9 +42,22 @@ function passwordProtected(req, res, next) {
 
 }
 
+//homepage
 app.get("/", async(req, res) => {
     const allAnimals = await db.collection("animals").find().toArray() //need to pass DB results into our render template
-    res.render("home", { allAnimals }) //we will render template called home.ejs
+        //can get better performance using React Pipeable
+    const generatedHTML = ReactDOMServer.renderToString(
+        <div className="container">
+        {!allAnimals.length && <p>Admin needs to add some animals please comback later</p>} 
+        <h1 className="title">MERN Application</h1>
+            <div className="animal-grid mb-3">
+                
+                {allAnimals.map(animal => <AnimalCard key={animal.id} name={animal.name} species={animal.species} photo={animal.photo} id={animal._id} readOnly={true}/>)}
+            </div>
+            <p><a href="/admin">Login to manage animal cards</a></p>
+        </div>
+    )
+    res.render("home", { generatedHTML }) //we will render template called home.ejs
 })
 
 
