@@ -1,9 +1,10 @@
 const { response } = require("express")
 const express = require("express")
-const { MongoClient } = require("mongodb") //connects to my mongoDB database
+const { MongoClient, ObjectId } = require("mongodb") //connects to my mongoDB database
     //only need multer when letting users upload files
 const multer = require('multer')
 const upload = multer()
+const sanitizeHTML = require('sanitize-html')
 
 let db //global var for getting client DB
 
@@ -54,9 +55,14 @@ app.get("/api/animals", async(req, res) => {
 //Axios.post("/create-animal") create a route for this for our server this is in the CreateNewForm.js
 //sending data this is handling a multi part from we need to include upload middleware (multer)
 //we want to only allow uploading of one single photo hence upload.single
-app.post("/create-animal", upload.single("photo"), async(req, res) => {
+app.post("/create-animal", upload.single("photo"), cleanupData, async(req, res) => {
     console.log(req.body)
-    res.send("Thank you")
+        //saving new collection into MongoDB database
+        //info will contain the _id of new document in Mongo
+    const info = await db.collection("animals").insertOne(req.cleanData)
+        //we want server to send back an object that represents the new animal doc that we just made back to browser
+    const newAnimal = await db.collection("animals").findOne({ _id: new ObjectId(info.insertedId) }) //ObjectId requires we call somthing from MongoDB inorder to access this ObjectId in our deconstructed mongodb
+    res.send(newAnimal)
 })
 
 
@@ -64,6 +70,15 @@ function cleanupData(req, res, next) {
     if (typeof req.body.name != "string") req.body.name = ""
     if (typeof req.body.species != "string") req.body.species = ""
     if (typeof req.body._id != "string") req.body._id = ""
+
+    //here we can santaise the values of any potential html using santitisehtml
+    req.cleanData = { //triming any white spaces not allowing any html tags, not allowing any elements or attributes
+        name: sanitizeHTML(req.body.name.trim(), { allowedTags: [], allowedAttributes: {} }),
+        species: sanitizeHTML(req.body.species.trim(), { allowedTags: [], allowedAttributes: {} }),
+
+    }
+
+    next()
 }
 
 async function start() {

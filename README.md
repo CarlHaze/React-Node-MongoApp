@@ -136,7 +136,10 @@ creating reusable middleware for this:
     if (typeof req.body._id != "string") req.body._id = ""
     }
 
-this function takes what is input and if it is not a string will convert it into an empty field
+this function takes what is input and if it is not a string will convert it into an empty field 
+
+we will use another package to sanitise html
+    npm install sanitize-html
 
 
 ## Multi part form handling 
@@ -146,3 +149,7 @@ with normal async (json) forms or html froms we use the following
 
 however this application uses multi part forms so we need a package to easily handle this, we only need this if we want users to send us files
     npm install multer
+
+
+## React forms updating info
+uses the CreateNewForm.js component Axios.post request this gives setAnimals a call and it adds new stuff
