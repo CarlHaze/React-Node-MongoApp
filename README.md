@@ -120,3 +120,4 @@ creating some custom middleware functionality we will only call next once parame
     password: admin
 this can be used for any route as an aditional argument. express calls these functions in order and this function will be a gatekeeper
 values in password get base64 encoded pretty funny work around what we type into password and username fails but console outputs a Bas64 string that we can use
+brute force attack would just go right through it
