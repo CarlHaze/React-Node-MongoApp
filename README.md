@@ -74,7 +74,10 @@ npm-run-all package allows us to use this command that allows use to run multipl
     "ourwebpack": "webpack --watch"
     "ourserver": "nodemon server.js",
 
-## React Install info   
+## React Install info  
+*remember to set language mode to Javascript React*
+
+React is a front end libary that lets us break down our code into componenets  
 Installed a bunch of packages to help with conversions and utalisation of react 
     npm install react react-dom @babel/core @babel/preset-react babel-loader webpack webpack-cli webpack-node-externals npm-run-all
 
@@ -87,3 +90,6 @@ added script to package.json this will watch for client side changes, anytime is
 
 added script so that we can run both commands for watching changes 
     "dev":"run-p ourserver ourwebpack"
+
+to test this works we will run 
+    npm run dev

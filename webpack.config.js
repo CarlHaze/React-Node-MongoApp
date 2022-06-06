@@ -1,21 +1,19 @@
-//loading the tools to convert jsx - Javascript
-
 const nodeExternals = require("webpack-node-externals")
 const path = require("path")
 
 const typicalReact = {
-        rules: [{
-            test: /\.js$/,
-            exclude: /(node_modules)/,
-            use: {
-                loader: "babel-loader",
-                options: {
-                    presets: ["@babel/preset-react"]
-                }
+    rules: [{
+        test: /\.js$/,
+        exclude: /(node_modules)/,
+        use: {
+            loader: "babel-loader",
+            options: {
+                presets: ["@babel/preset-react"]
             }
-        }]
-    }
-    //getting the react stuff from index.js and output it into public folder (main.js)
+        }
+    }]
+}
+
 const clientConfig = {
     entry: "./src/index.js",
     output: {
