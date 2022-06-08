@@ -180,3 +180,9 @@ edit node server to use webpack / babel
     }
 by changing our nodemon script in package.json we can now use react jsx on the server side
     "ourserver": "nodemon server-compiled",
+
+
+
+# Web Components 
+Using Meterial-ui with emotion for usage with React 
+    npm install @mui/material @emotion/react @emotion/styled
