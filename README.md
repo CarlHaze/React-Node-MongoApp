@@ -25,8 +25,10 @@ To assess your ability to develop an advanced Web application using new or influ
 
 Using an industry recognised Web application framework that you **did not use** for a previous assessment, create an application that includes the following functionality:
 
-- Includes the use of a 3rd party web component technology, e.g. *Material UI, Polymer, Vuetify, Web Components* etc. to provide reusability and consistency with regards to common element groups. For example; *cards, grids, navbars, buttons*. **(10 marks)**
+- Includes the use of a 3rd party web component technology, e.g. *Material UI, Polymer, Vuetify, Web Components* etc. to provide reusability and consistency with regards to common element groups. For example; *cards, grids, navbars, buttons*. **(10 marks)** 
 
+*use somthing reconsied framework for my cards *Material UI is for react use this* so not carl.js 
+  
 - Displays the Web site layout and components in a tidy and consistent format (lecturers discretion) (*grids, cards, toolbars*) etc. **(5 marks)**
 
 - Utilises a database to provide and populate some components with data (see the lecturer for approval, before implementation). **(20 marks)**

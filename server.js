@@ -58,7 +58,7 @@ app.get("/", async(req, res) => {
             </div>
             <p><a href="/admin">Login to manage animal cards</a></p>
             <div className="browserstorage">
-                <input type={"text"}/>
+               
             </div>
             
         </div>
