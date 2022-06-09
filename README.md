@@ -184,5 +184,16 @@ by changing our nodemon script in package.json we can now use react jsx on the s
 
 
 # Web Components 
-Using Meterial-ui with emotion for usage with React 
+Using Material-ui with emotion for usage with React 
     npm install @mui/material @emotion/react @emotion/styled
+
+Material-ui usage is straight forward adding 
+    import Button from '@mui/material/Button'
+to the top of our component then allows us to use the pre styled buttons by calling what we want eg
+    <Button color="secondary">Secondary</Button>
+    <Button variant="contained" color="success">
+        Success
+    </Button>
+    <Button variant="outlined" color="error">
+        Error
+    </Button>

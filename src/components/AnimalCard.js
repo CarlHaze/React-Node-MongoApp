@@ -1,5 +1,7 @@
 import Axios from "axios"
 import React, { useState } from "react"
+import Button from '@mui/material/Button'
+
 
 function AnimalCard(props) {
   const [isEditing, setIsEditing] = useState(false)
@@ -57,18 +59,18 @@ function AnimalCard(props) {
             <p className="text-muted small">Species: {props.species}</p>
             {!props.readOnly && (
               <>
-                <button
+                <Button variant="contained"
                   onClick={() => {
                     setIsEditing(true)
                     setDraftName(props.name)
                     setDraftSpecies(props.species)
                     setFile("")
                   }}
-                  className="btn btn-sm btn-primary"
+                  
                 >
                   Edit
-                </button>{" "}
-                <button
+                </Button>{" "}
+                <Button variant="outlined" color="error"
                   onClick={async () => {
                     const test = Axios.delete(`/animal/${props.id}`) //this sends a delete request to delete what ever the id of the animal prop is
                     props.setAnimals(prev => {
@@ -77,10 +79,10 @@ function AnimalCard(props) {
                       })
                     })
                   }}
-                  className="btn btn-sm btn-outline-danger"
+                  //className="btn btn-sm btn-outline-danger"
                 >
                   Delete
-                </button>
+                </Button>
               </>
             )}
           </>
