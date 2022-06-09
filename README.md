@@ -58,15 +58,21 @@ Using an industry recognised Web application framework that you **did not use** 
 ## nodemon
 Installed nodemon to monitor changes within our application while it is running
 to use this need to add this line to our scripts in package.json
+
      "ourserver": "nodemon server.js",
 
 
 ## Template engine
 Adding template engine EJS
+
     npm install ejs
+
 need to tell our app we want to use EJS doing this top of our server.js file
+    
     app.set("view engine", "ejs")
+
 then set the folder we want to keep our view templates in
+    
     app.set("views", "./views")
 
 ## Client Side JavaScript
@@ -74,6 +80,7 @@ this is for clicking on entity so that we can edit values of them from the websi
 
 ## Running multiple commands in parallel
 npm-run-all package allows us to use this command that allows use to run multiple commands in parallel at once
+
     "dev":"run-p"
     "dev":"run-p ourserver ourwebpack"
     "ourwebpack": "webpack --watch"
@@ -85,28 +92,34 @@ npm-run-all package allows us to use this command that allows use to run multipl
 React is a front end libary that lets us break down our code into componenets  
 
 Installed a bunch of packages to help with conversions and utalisation of react 
+
     npm install react react-dom @babel/core @babel/preset-react babel-loader webpack webpack-cli webpack-node-externals npm-run-all
 
 webpack is the important part here it will bundle up the JSX convert it into regular JavaScript that web browser will understand
 need to create a file in the root for webpack to work and so we can tell it what to do
+    
     webpack.config.js
 
 added script to package.json this will watch for client side changes, anytime is a change it will rebundle for us
+    
     "ourwebpack": "webpack --watch"
 
 added script so that we can run both commands for watching changes 
+    
     "dev":"run-p ourserver ourwebpack"
 
 to test this works we will run 
+    
     npm run dev
 
 ## Axios
 Installing yet more packages, this one is to help with fetching, not really needed for loading or retreving data but helps with sending data
+    
     npm install axios
 
 
 ## HTML CSS 
-just templates used Bootstrap.css and own css file
+just templates used Bootstrap.css and own css file added Material-UI for stuff
 
 ## Security Adding password protection to Admin and other urls on my webpage
 creating some custom middleware functionality we will only call next once parameters have been meet
@@ -122,8 +135,10 @@ creating some custom middleware functionality we will only call next once parame
     }
 
     }
+
 username: admin
 password: admin
+
 this can be used for any route as an aditional argument. express calls these functions in order and this function will be a gatekeeper
 values in password get base64 encoded pretty funny work around what we type into password and username fails but console outputs a Bas64 string that we can use
 brute force attack would just go right through it
@@ -149,10 +164,12 @@ we will use another package to sanitise html
 
 ## Multi part form handling 
 with normal async (json) forms or html froms we use the following
+
     app.use(express.json()) //if browser sends json(async) to the server we can then access that data
     app.use(express.urlencoded({ extended: false })) //if someone is just submiting an html form we want to access that data
 
 however this application uses multi part forms so we need a package to easily handle this, we only need this if we want users to send us files
+    
     npm install multer
 
 
@@ -161,6 +178,7 @@ uses the CreateNewForm.js component Axios.post request this gives setAnimals a c
 
 ## Images
 importing fs extra and sharp for resizing and magement of images
+    
     npm install fs-extra sharp
 
 ## Home page
@@ -181,16 +199,20 @@ edit node server to use webpack / babel
         }
 
 by changing our nodemon script in package.json we can now use react jsx on the server side
+    
     "ourserver": "nodemon server-compiled",
 
 
 
 # Web Components 
 Using Material-ui with emotion for usage with React 
+
     npm install @mui/material @emotion/react @emotion/styled
 
 Material-ui usage is straight forward adding 
+
     import Button from '@mui/material/Button'
+
 to the top of our component then allows us to use the pre styled buttons by calling what we want eg
 
     <Button color="secondary">Secondary</Button>
@@ -203,8 +225,9 @@ to the top of our component then allows us to use the pre styled buttons by call
 
 
 we can create new colour themes for buttons etc its a bit complicated over just using some CSS to set a hex value though
+
 (adding new colours)[https://mui.com/material-ui/customization/palette/#adding-new-colors]
 
 Have wrapped stuff using the Material UI container setting a max width it is till resonsive but I feel like min max with css is nicer to use in my index.js
 
-(Decent Video related to Material UI)[https://www.youtube.com/watch?v=vyJU9efvUtQ] 
+(Decent Video related to Material UI)[https://www.youtube.com/watch?v=vyJU9efvUtQ] maybe outdated 2020 
