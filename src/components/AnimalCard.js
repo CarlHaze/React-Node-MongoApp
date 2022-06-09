@@ -1,6 +1,7 @@
 import Axios from "axios"
 import React, { useState } from "react"
 import Button from '@mui/material/Button'
+import { Delete } from "@mui/icons-material"
 
 
 function AnimalCard(props) {
@@ -70,7 +71,7 @@ function AnimalCard(props) {
                 >
                   Edit
                 </Button>{" "}
-                <Button variant="outlined" color="error"
+                <Button variant="outlined" startIcon={<Delete/>} color="error" size="small"
                   onClick={async () => {
                     const test = Axios.delete(`/animal/${props.id}`) //this sends a delete request to delete what ever the id of the animal prop is
                     props.setAnimals(prev => {

@@ -200,3 +200,7 @@ to the top of our component then allows us to use the pre styled buttons by call
     <Button variant="outlined" color="error">
         Error
     </Button>
+
+
+we can create new colour themes for buttons etc its a bit complicated over just using some CSS to set a hex value though
+(adding new colours)[https://mui.com/material-ui/customization/palette/#adding-new-colors]

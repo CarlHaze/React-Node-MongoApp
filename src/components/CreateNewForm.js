@@ -1,6 +1,9 @@
 import Axios from "axios"
 import React, { useState, useRef } from "react"
 
+import Button from '@mui/material/Button'
+import { Send } from "@mui/icons-material"
+
 function CreateNewForm(props) {
   const [name, setName] = useState("")
   const [species, setSpecies] = useState("")
@@ -33,7 +36,7 @@ function CreateNewForm(props) {
         <input onChange={e => setSpecies(e.target.value)} value={species} type="text" className="form-control" placeholder="Species" />
       </div>
 
-      <button className="btn btn-success">Create New Animal</button>
+      <Button variant="contained" color="success"  className="btn btn-success" endIcon={<Send/>}>Create New Animal</Button>
     </form>
   )
 }
