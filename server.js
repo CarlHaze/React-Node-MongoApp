@@ -13,6 +13,8 @@ const React = require('react')
 const ReactDOMServer = require('react-dom/server')
 const AnimalCard = require("./src/components/AnimalCard").default
 
+import Button from '@mui/material/Button'
+import Typography from '@mui/material/Typography';
 
 //when app first launches, make sure the public/uploaded-photos folder exists as git likes to delete empty folders
 fse.ensureDirSync(path.join("public", "uploaded-photos"))
@@ -50,16 +52,20 @@ app.get("/", async(req, res) => {
         <div className="container">
             
         {!allAnimals.length && <p>Admin needs to add some animals please comback later</p>} 
-        
-        <h1 className="title">MERN Application</h1>
+        <Typography variant='h1' component="div" gutterBottom align='center'>MERN Application</Typography>
+       
             <div className="animal-grid mb-3">
                 
                 {allAnimals.map(animal => <AnimalCard key={animal.id} name={animal.name} species={animal.species} photo={animal.photo} id={animal._id} readOnly={true}/>)}
             </div>
-            <p><a href="/admin">Login to manage animal cards</a></p>
-            <div className="browserstorage">
-               
-            </div>
+            <Button variant='contained' color='success' size='Large' href="/admin" 
+            sx={{
+                ':hover':{
+                    bgcolour:'primary.main',
+                    color:'white',
+                },
+            }}>Login to manage animal cards</Button>
+           
             
         </div>
         

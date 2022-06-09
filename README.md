@@ -204,3 +204,7 @@ to the top of our component then allows us to use the pre styled buttons by call
 
 we can create new colour themes for buttons etc its a bit complicated over just using some CSS to set a hex value though
 (adding new colours)[https://mui.com/material-ui/customization/palette/#adding-new-colors]
+
+Have wrapped stuff using the Material UI container setting a max width it is till resonsive but I feel like min max with css is nicer to use in my index.js
+
+(Decent Video related to Material UI)[https://www.youtube.com/watch?v=vyJU9efvUtQ] 

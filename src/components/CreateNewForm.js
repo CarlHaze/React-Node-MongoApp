@@ -35,8 +35,9 @@ function CreateNewForm(props) {
       <div className="mb-2">
         <input onChange={e => setSpecies(e.target.value)} value={species} type="text" className="form-control" placeholder="Species" />
       </div>
+      <button className="btn btn-success">Create New Animal</button>
 
-      <Button variant="contained" color="success"  className="btn btn-success" endIcon={<Send/>}>Create New Animal</Button>
+      {/* <Button variant="contained" color="success"  className="btn btn-success" endIcon={<Send/>}>Create New Animal</Button> */}
     </form>
   )
 }
