@@ -93,29 +93,29 @@ React is a front end libary that lets us break down our code into componenets
 
 Installed a bunch of packages to help with conversions and utalisation of react 
 
-    npm install react react-dom @babel/core @babel/preset-react babel-loader webpack webpack-cli webpack-node-externals npm-run-all
+     npm install react react-dom @babel/core @babel/preset-react babel-loader webpack webpack-cli webpack-node-externals npm-run-all
 
 webpack is the important part here it will bundle up the JSX convert it into regular JavaScript that web browser will understand
 need to create a file in the root for webpack to work and so we can tell it what to do
     
-    webpack.config.js
+     webpack.config.js
 
 added script to package.json this will watch for client side changes, anytime is a change it will rebundle for us
     
-    "ourwebpack": "webpack --watch"
+        "ourwebpack": "webpack --watch"
 
 added script so that we can run both commands for watching changes 
     
-    "dev":"run-p ourserver ourwebpack"
+        "dev":"run-p ourserver ourwebpack"
 
 to test this works we will run 
     
-    npm run dev
+     npm run dev
 
 ## Axios
 Installing yet more packages, this one is to help with fetching, not really needed for loading or retreving data but helps with sending data
     
-    npm install axios
+        npm install axios
 
 
 ## HTML CSS 
