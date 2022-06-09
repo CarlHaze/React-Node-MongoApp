@@ -45,11 +45,11 @@ Using an industry recognised Web application framework that you **did not use** 
  # MongoDB 
 
 # MongoDB cluster connection info
-    Username: Carl_Ellis
-    Password: mongodbtest
+    Username: {username}
+    Password: {password}
 
 # MongoDB Connect your application info
-    mongodb+srv://Carl_Ellis:mongodbtest@cluster0.j16jrhy.mongodb.net/?retryWrites=true&w=majority
+    mongodb+srv://{username}:{password}@cluster0.j16jrhy.mongodb.net/?retryWrites=true&w=majority
 
 
 
@@ -136,8 +136,8 @@ creating some custom middleware functionality we will only call next once parame
 
     }
 
-username: admin
-password: admin
+username: 
+password: 
 
 this can be used for any route as an aditional argument. express calls these functions in order and this function will be a gatekeeper
 values in password get base64 encoded pretty funny work around what we type into password and username fails but console outputs a Bas64 string that we can use
