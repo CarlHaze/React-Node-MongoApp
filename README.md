@@ -167,17 +167,19 @@ importing fs extra and sharp for resizing and magement of images
 server will send plain HTML but will look like our admin card page and display all our animal cards
 react compoenet for both client side javascript and server side rendering. 
 edit node server to use webpack / babel
-    const serverConfig = {
-    entry: "./server.js",
-    output: {
-        path: __dirname,
-        filename: "server-compiled.js"
-    },
-    externals: [nodeExternals(),
-    target: "node",
-    mode: "production",
-    module: typicalReact
-    }
+
+        const serverConfig = {
+        entry: "./server.js",
+        output: {
+            path: __dirname,
+            filename: "server-compiled.js"
+        },
+        externals: [nodeExternals(),
+        target: "node",
+        mode: "production",
+        module: typicalReact
+        }
+
 by changing our nodemon script in package.json we can now use react jsx on the server side
     "ourserver": "nodemon server-compiled",
 
