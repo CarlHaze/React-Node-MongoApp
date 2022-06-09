@@ -190,6 +190,7 @@ Using Material-ui with emotion for usage with React
 Material-ui usage is straight forward adding 
     import Button from '@mui/material/Button'
 to the top of our component then allows us to use the pre styled buttons by calling what we want eg
+
     <Button color="secondary">Secondary</Button>
     <Button variant="contained" color="success">
         Success
