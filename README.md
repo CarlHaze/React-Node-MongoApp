@@ -102,11 +102,11 @@ need to create a file in the root for webpack to work and so we can tell it what
 
 added script to package.json this will watch for client side changes, anytime is a change it will rebundle for us
     
-        "ourwebpack": "webpack --watch"
+     "ourwebpack": "webpack --watch"
 
 added script so that we can run both commands for watching changes 
     
-        "dev":"run-p ourserver ourwebpack"
+     "dev":"run-p ourserver ourwebpack"
 
 to test this works we will run 
     
@@ -115,7 +115,7 @@ to test this works we will run
 ## Axios
 Installing yet more packages, this one is to help with fetching, not really needed for loading or retreving data but helps with sending data
     
-        npm install axios
+     npm install axios
 
 
 ## HTML CSS 
