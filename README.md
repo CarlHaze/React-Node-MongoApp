@@ -4,7 +4,7 @@
 [link to my ToDo Board](https://github.com/users/CarlHaze/projects/1/views/1)
 
  # *MERN basics*
- # **using MongoDB, Express, React, Node** 
+ # **Using MongoDB, Express, React, Node** 
 
 Express for Routing 
 MondgoDB to hold permanant data
